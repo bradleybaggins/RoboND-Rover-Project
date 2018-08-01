@@ -35,6 +35,7 @@
 #### 1. Run the functions provided in the notebook on test images (first with the test data provided, next on data you have recorded).
 #### Add/modify functions to allow for color selection of obstacles and rock samples.
 The provided sample functions in the Test notebook provided the following output:
+
 Testing the provided base functions on newly captured sample data yielded the following output:
 
 ![alt text][image1]
@@ -62,15 +63,8 @@ The image coordinates are converted to coordinates in the rover’s perspective 
 
 Turning those navigable pixels into polar coordinates to send the 'decision_step()' a nav angle will inform 'decision_step()' how much to add or reduce to the 'Rover.yaw'. The 'find_rocks()' function was added to apply a new threshold to the image, but also assign the output to a distinct color channel. The output 'rock_map' is similar to the 'threshed' or 'obs_map' sets and is then processed in the same, first to coordinates in the rover’s perspective via 'rover_coords()', then to the world coordinates using 'pix_to_world()', and finally to a set of telemetry instructions via 'to_polar_coords()'. The closest point of the rock is assigned to 'Rover.worldmap' in the 2nd color channel. The 'vision_image' is also updated in a similar way showing pixels which pass this other threshold.
 
-All this information is enough to provide the rover with nav angles that enable it to drive autonomously. In initial runs of the rover in autonomous mode, I had noticed that the rover succeeded in identifying several rocks within the first 100-150 seconds, but began to struggle with map fidelity. I adjusted the 'throttle_set' in the 'RoverState()' down from 0.2 to 0.15 to map more slowly, but hopefully achieve a greater degree of accuracy in mapping. I also would reduce the 'Rover.steer' parameter to hopefully achieve greater mapping fidelity when the rover is turning and the perspective warping is inherently less accurate.
-
-
 #### 2. Launching in autonomous mode your rover can navigate and map autonomously.  Explain your results and how you might improve them in your writeup.  
 
-**Note: running the simulator with different choices of resolution and graphics quality may produce different results, particularly on different machines!  Make a note of your simulator settings (resolution and graphics quality set on launch) and frames per second (FPS output to terminal by `drive_rover.py`) in your writeup when you submit the project so your reviewer can reproduce your results.**
-
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
-
-
+All this information is enough to provide the rover with nav angles that enable it to drive autonomously. In initial runs of the rover in autonomous mode, I had noticed that the rover succeeded in identifying several rocks within the first 100-150 seconds, but began to struggle with map fidelity. I adjusted the 'throttle_set' in the 'RoverState()' down from 0.2 to 0.15 to map more slowly, but hopefully achieve a greater degree of accuracy in mapping. I also would reduce the 'Rover.steer' parameter to hopefully achieve greater mapping fidelity when the rover is turning and the perspective warping is inherently less accurate.
 
 ![alt text][image3]

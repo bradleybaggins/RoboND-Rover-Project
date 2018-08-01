@@ -26,7 +26,6 @@
 [image1]: ./misc/rover_image.jpg
 [image2]: ./calibration_images/example_grid1.jpg
 [image3]: ./calibration_images/example_rock1.jpg
-[video1]: ./output/test_mapping.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/916/view) Points
 ### Here I will consider the rubric points individually and describe how I addressed each point in my implementation.  
@@ -46,8 +45,7 @@ Testing the provided base functions on newly captured sample data yielded the fo
 
 By applying the perspective transform and processing the rover image with the default color threshold, the rover can begin to identify pixels which represent navigable terrain. By combining those pixel positions with the rover’s telemetry, the rover can also build the 'worldmap' using the 'pix_to_world()' function. Any pixels which pass the RGB threshold are deemed navigable and assigned to the 3rd channel of the 'worldmap'. Obstacles will be assigned to the first channel of the 'worldmap' for any pixels which do not pass the color threshold. Rocks will need to pass a different threshold targeting a more specific color.
 
-![alt text][video1]
-
+#The video of my test mapping can be found here: './output/test_mapping.mp4'
 
 ### Autonomous Navigation and Mapping
 
